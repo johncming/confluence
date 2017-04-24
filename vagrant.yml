@@ -3,3 +3,17 @@
   become: yes
   roles:
     - angstwad.docker_ubuntu
+
+- hosts: all
+  become: yes
+  tasks:
+    - user:
+        name: "{{ ansible_ssh_user }}"
+        groups: docker
+        append: yes
+    - command: docker-compose up -d
+      args:
+        chdir: /vagrant
+      register: compose_result
+    - debug:
+        msg: "compose result: {{ compose_result }}"
