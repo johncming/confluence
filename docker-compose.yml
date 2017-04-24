@@ -8,6 +8,14 @@ services:
     volumes:
       - 'postgres_confluence:/var/lib/postgresql/data'
 
+  confluence:
+    image: blacklabelops/confluence
+    ports:
+      - '8090:8090'
+      - '8091:8091'
+    links:
+      - 'db:postgres'
+
 volumes:
   postgres_confluence:
 
