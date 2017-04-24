@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  db:
+    env_file: user_info.env
+    image: postgres
+    network_mode: bridge
+    volumes:
+      - 'postgres_confluence:/var/lib/postgresql/data'
+
+volumes:
+  postgres_confluence:
+
+networks: {}
