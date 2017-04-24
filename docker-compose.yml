@@ -4,7 +4,6 @@ services:
   db:
     env_file: user_info.env
     image: postgres
-    network_mode: bridge
     volumes:
       - 'postgres_confluence:/var/lib/postgresql/data'
 
@@ -18,5 +17,3 @@ services:
 
 volumes:
   postgres_confluence:
-
-networks: {}
